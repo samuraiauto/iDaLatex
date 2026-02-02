@@ -23,6 +23,29 @@ iDaLatex/
 └── README.md       # Документация
 ```
 
+## Загрузка на GitHub
+
+Проект уже инициализирован как git репозиторий. Для загрузки на GitHub:
+
+### Вариант 1: Использование скрипта (рекомендуется)
+
+1. Создайте новый репозиторий на GitHub: https://github.com/new
+2. Скопируйте URL вашего репозитория (например: `https://github.com/username/iDaLatex.git`)
+3. Запустите скрипт:
+```bash
+./deploy-to-github.sh https://github.com/username/iDaLatex.git
+```
+
+### Вариант 2: Ручная загрузка
+
+1. Создайте новый репозиторий на GitHub: https://github.com/new
+2. Выполните команды:
+```bash
+git remote add origin https://github.com/username/iDaLatex.git
+git branch -M main
+git push -u origin main
+```
+
 ## Запуск проекта
 
 1. Откройте файл `index.html` в вашем браузере
