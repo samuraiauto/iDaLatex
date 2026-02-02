@@ -97,6 +97,11 @@ body {
     cursor: pointer;
     padding: 0.5rem;
     transition: var(--transition);
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart-icon:hover {

@@ -6,6 +6,19 @@
     <meta name="description" content="Купить латексные подушки и матрасы из 100% натурального латекса. Ортопедические подушки и матрасы для здорового сна. Доставка по России.">
     <meta name="keywords" content="латексные подушки, латексные матрасы, натуральный латекс, ортопедические подушки, ортопедические матрасы, подушки из латекса, матрасы из латекса">
     <meta name="author" content="iDaLatex">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samuraiauto.github.io/iDaLatex/">
+    <meta property="og:title" content="iDaLatex - Натуральные латексные подушки и матрасы">
+    <meta property="og:description" content="100% натуральные латексные подушки и матрасы для здорового сна. Ортопедическая поддержка, гипоаллергенно, долговечно.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://samuraiauto.github.io/iDaLatex/">
+    <meta property="twitter:title" content="iDaLatex - Натуральные латексные подушки и матрасы">
+    <meta property="twitter:description" content="100% натуральные латексные подушки и матрасы для здорового сна.">
+    
     <title>iDaLatex - Натуральные латексные подушки и матрасы</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,18 +35,18 @@
                         <h1>iDaLatex</h1>
                         <span class="tagline">100% натуральный латекс</span>
                     </div>
-                    <ul class="nav-menu">
-                        <li><a href="#home">Главная</a></li>
-                        <li><a href="#products">Продукты</a></li>
-                        <li><a href="#about">О нас</a></li>
-                        <li><a href="#contact">Контакты</a></li>
+                    <ul class="nav-menu" role="navigation">
+                        <li><a href="#home" aria-label="Перейти на главную">Главная</a></li>
+                        <li><a href="#products" aria-label="Перейти к продуктам">Продукты</a></li>
+                        <li><a href="#about" aria-label="О компании">О нас</a></li>
+                        <li><a href="#contact" aria-label="Контакты">Контакты</a></li>
                     </ul>
-                    <div class="cart-icon" id="cartIcon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <button class="cart-icon" id="cartIcon" aria-label="Открыть корзину" aria-expanded="false">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 2a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
                         </svg>
-                        <span class="cart-count" id="cartCount">0</span>
-                    </div>
+                        <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -44,7 +57,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Здоровый сон начинается здесь</h1>
             <p class="hero-subtitle">100% натуральные латексные подушки и матрасы для идеального отдыха</p>
-            <a href="#products" class="btn btn-primary">Смотреть каталог</a>
+            <a href="#products" class="btn btn-primary" aria-label="Перейти к каталогу продуктов">Смотреть каталог</a>
         </div>
         <div class="hero-image">
             <div class="hero-placeholder"></div>
