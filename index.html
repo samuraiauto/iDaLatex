@@ -98,8 +98,8 @@
             <h2 class="section-title">Наши продукты</h2>
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">Все</button>
-                <button class="filter-btn" data-filter="pillows">Подушки</button>
-                <button class="filter-btn" data-filter="mattresses">Матрасы</button>
+                <button class="filter-btn" data-filter="esim">eSIM</button>
+                <button class="filter-btn" data-filter="giftcards">Подарочные карты</button>
             </div>
             <div class="products-grid" id="productsGrid">
                 <!-- Products will be loaded here by JavaScript -->
@@ -203,7 +203,15 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" id="clearCart">Очистить корзину</button>
-                <button class="btn btn-primary" id="checkout">Оформить заказ</button>
+                <input
+                    id="checkoutEmail"
+                    type="email"
+                    placeholder="Email для доставки"
+                    style="flex: 1; min-width: 220px; padding: 0.9rem 1rem; border-radius: 50px; border: 2px solid rgba(0,0,0,0.1); outline: none;"
+                    autocomplete="email"
+                    required
+                />
+                <button class="btn btn-primary" id="checkout">Оформить (заявка)</button>
             </div>
         </div>
     </div>

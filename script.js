@@ -20,7 +20,7 @@ function renderProducts(filter = 'all') {
         <div class="product-card" data-product-id="${product.id}">
             <div class="product-image">${product.emoji}</div>
             <div class="product-info">
-                <div class="product-category">${product.category === 'pillows' ? 'Подушка' : 'Матрас'}</div>
+                <div class="product-category">${product.category === 'esim' ? 'eSIM' : 'Подарочная карта'}</div>
                 <h3 class="product-name">${product.name}</h3>
                 <p class="product-description">${product.description}</p>
                 <div class="product-footer">
@@ -206,7 +206,21 @@ function setupEventListeners() {
             alert('Корзина пуста');
             return;
         }
-        alert('Спасибо за заказ! Мы свяжемся с вами в ближайшее время.');
+        const emailInput = document.getElementById('checkoutEmail');
+        const email = (emailInput?.value || '').trim();
+        if (!email || !email.includes('@')) {
+            alert('Введите корректный email для доставки цифрового товара');
+            return;
+        }
+        // Пока сайт полностью статический: формируем заказ и открываем письмо продавцу.
+        // Позже заменим на создание платежа (ЮKassa) и автоматическую выдачу.
+        const orderText = buildOrderText(email);
+        const shopEmail = 'sales@example.com'; // замените на ваш email
+        const subject = encodeURIComponent('Новый заказ цифрового товара');
+        const body = encodeURIComponent(orderText);
+        window.location.href = `mailto:${shopEmail}?subject=${subject}&body=${body}`;
+
+        alert('Заказ сформирован. Сейчас откроется ваше почтовое приложение для отправки заявки. После оплаты мы отправим товар на указанный email.');
         clearCart();
         closeCartModal();
     });
@@ -229,6 +243,24 @@ function setupEventListeners() {
         alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
         e.target.reset();
     });
+}
+
+function buildOrderText(customerEmail) {
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const lines = [];
+    lines.push('Заявка на покупку цифрового товара');
+    lines.push('');
+    lines.push(`Email для доставки: ${customerEmail}`);
+    lines.push('');
+    lines.push('Товары:');
+    cart.forEach((item) => {
+        lines.push(`- ${item.name} × ${item.quantity} = ${formatPrice(item.price * item.quantity)}`);
+    });
+    lines.push('');
+    lines.push(`Итого: ${formatPrice(total)}`);
+    lines.push('');
+    lines.push('Комментарий: (при необходимости)');
+    return lines.join('\n');
 }
 
 // Плавная прокрутка
