@@ -8,12 +8,13 @@ import { fulfillFromSupplier } from "./supplier.js";
 import { sendDigitalGoodsEmail } from "./mailer.js";
 import { ordersStore } from "./store.js";
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// Всегда грузим backend/.env, даже если процесс запущен из корня репозитория.
+dotenv.config({ path: path.resolve(__dirname, "..", ".env") });
 
 const app = express();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const siteRoot = path.resolve(__dirname, "..", "..");
 
 app.use(express.static(siteRoot));
@@ -140,7 +141,8 @@ app.post("/api/yookassa/webhook", express.json({ type: "*/*" }), async (req, res
 });
 
 const port = Number(process.env.PORT ?? 3000);
-app.listen(port, () => {
-  console.log(`Backend listening on http://localhost:${port}`);
+const host = process.env.HOST?.trim() || "0.0.0.0";
+app.listen(port, host, () => {
+  console.log(`Backend listening on http://${host}:${port}`);
 });
 
